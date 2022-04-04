@@ -22,11 +22,11 @@ export const ProductList = () => {
         console.error(error);
       }
     })();
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     document.title = "Products | Echo Store";
-},[])
+  }, []);
 
   const productsToDisplay = getFilteredProducts(
     products,
