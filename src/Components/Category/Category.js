@@ -7,8 +7,12 @@ export const Category = () => {
   const [category, setCategory] = useState([]);
   useEffect(() => {
     (async () => {
-      const response = await axios.get("/api/categories");
-      setCategory(response.data.categories);
+      try {
+        const categoriesResponse = await axios.get("/api/categories");
+        setCategory(categoriesResponse.data.categories);
+      } catch (error) {
+        console.error(error.message);
+      }
     })();
   }, []);
   return (
