@@ -3,7 +3,7 @@ import {
   getPriceFilteredProducts,
   getRatingFilteredProducts,
   getSortedProducts,
-} from "./";
+} from "../";
 
 export const getFilteredProducts = (
   products,
