@@ -1,0 +1,44 @@
+.sidebar {
+  min-width: 16rem;
+  padding: 1rem 2rem;
+  overflow: auto;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+.filter__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.filter__subtitle {
+  margin: 1rem 0 0.5rem;
+}
+.filter__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.filter__range {
+  width: 100%;
+  cursor: pointer;
+}
+
+.rating {
+  font-size: 1.2rem;
+  margin-top:0.5rem
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  max-height: 28rem;
+}
+.card__footer {
+  margin-top: auto;
+}
