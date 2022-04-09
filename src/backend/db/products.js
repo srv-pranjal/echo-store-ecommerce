@@ -12,7 +12,7 @@ import {
   speaker1,
   storage,
   storage1,
-} from "../../assets";
+} from "assets";
 
 export const products = [
   {

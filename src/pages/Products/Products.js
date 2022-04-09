@@ -1,4 +1,4 @@
-import { Filters, ProductList } from "../../Components";
+import { Filters, ProductList } from "Components";
 import "./Products.css";
 
 export const Products = () => {
