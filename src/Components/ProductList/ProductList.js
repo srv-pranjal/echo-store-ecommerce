@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import axios from "axios";
-import { ProductCard } from "../ProductCard/ProductCard";
-import { useProducts } from "../../contexts/product-context";
-import { getFilteredProducts } from "../../utilities";
+import { ProductCard } from "Components";
+import { useProducts } from "contexts/product-context";
+import { getFilteredProducts } from "utilities";
 
 export const ProductList = () => {
   const {

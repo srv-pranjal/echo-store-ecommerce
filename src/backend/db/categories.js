@@ -6,7 +6,7 @@ import {
   laptop,
   speaker,
   storage,
-} from "../../assets";
+} from "assets";
 
 /**
  * Category Database can be added here.

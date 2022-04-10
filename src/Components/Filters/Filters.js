@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useProducts } from "../../contexts/product-context";
+import { useProducts } from "contexts/product-context";
 
 export const Filters = () => {
   const ratingOptions = ["4", "3", "2", "1"];
