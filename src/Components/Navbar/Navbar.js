@@ -1,6 +1,11 @@
+import { useAuth } from "contexts";
 import { Link } from "react-router-dom";
-import "./Navbar.css"
+import "./Navbar.css";
+
 export const Navbar = () => {
+  const {
+    authState: { isLoggedIn, user },
+  } = useAuth();
   return (
     <header className="wrapper">
       <Link to="/">
@@ -19,8 +24,15 @@ export const Navbar = () => {
         </div>
         <ul className="nav__list">
           <li className="nav__list-item">
-            <Link to="/login" className="btn btn--secondary" role="button">
-              Login
+            <span>{isLoggedIn && `Hi, ${user.firstName}`}</span>
+          </li>
+          <li className="nav__list-item">
+            <Link
+              to={isLoggedIn ? "/logout" : "/login"}
+              className={isLoggedIn ? "btn btn--error" : "btn btn--success"}
+              role="button"
+            >
+              {isLoggedIn ? "Logout" : "Login"}
             </Link>
           </li>
           <li className="nav__list-item">
