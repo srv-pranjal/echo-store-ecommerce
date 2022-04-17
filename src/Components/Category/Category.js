@@ -5,6 +5,11 @@ import { CategoryCard } from "./CategoryCard";
 
 export const Category = () => {
   const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    document.title = "Home | Echo Store";
+  }, []);
+
   useEffect(() => {
     (async () => {
       try {
@@ -15,6 +20,7 @@ export const Category = () => {
       }
     })();
   }, []);
+
   return (
     <div>
       <h1 className="section__heading">Categories</h1>

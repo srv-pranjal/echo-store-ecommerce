@@ -11,6 +11,10 @@ export const ProductList = () => {
   } = useProducts();
 
   useEffect(() => {
+    document.title = "Products | Echo Store";
+  }, []);
+
+  useEffect(() => {
     (async () => {
       try {
         const productResponse = await axios.get("/api/products");
@@ -24,10 +28,6 @@ export const ProductList = () => {
     })();
   }, [dispatch]);
 
-  useEffect(() => {
-    document.title = "Products | Echo Store";
-  }, []);
-
   const productsToDisplay = getFilteredProducts(
     products,
     sortBy,
@@ -37,7 +37,7 @@ export const ProductList = () => {
   );
 
   return (
-    <section className="section center-main-axis center-cross-axis">
+    <section className="section center-main-axis center-cross-axis products">
       {productsToDisplay.length > 0 ? (
         productsToDisplay.map((product) => (
           <ProductCard key={product.id} product={product} />

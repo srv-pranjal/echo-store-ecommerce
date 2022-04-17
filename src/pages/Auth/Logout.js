@@ -20,17 +20,13 @@ export const Logout = () => {
   useEffect(() => {
     setTimeout(() => navigate("/", { replace: true }), 3000);
   }, [navigate]);
+
   return (
     <main className="authentication">
       <div className="logout-container">
         <h3 className="authentication__title">Logged Out Successfully</h3>
         <p className="authentication__subtitle">
           Thank You for visiting Echo Store!.
-        </p>
-        <p className="authentication__subtitle">
-          <Link to="/" className="btn btn--link-text" role="button">
-            <i className="fa fa-arrow-left"></i> Back to Home Page
-          </Link>
         </p>
       </div>
     </main>
