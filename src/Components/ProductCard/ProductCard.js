@@ -1,12 +1,16 @@
-import { useAuth, useCart } from "contexts";
+import { useAuth, useCart, useWishlist } from "contexts";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "utilities";
+import { addToCart, addToWishlist } from "utilities";
 
 export const ProductCard = ({ product }) => {
   const {
     cartState: { cartItems },
     cartDispatch,
   } = useCart();
+  const {
+    wishlistState: { wishlistItems },
+    wishlistDispatch,
+  } = useWishlist();
   const {
     authState: { isLoggedIn, token },
   } = useAuth();
@@ -52,7 +56,34 @@ export const ProductCard = ({ product }) => {
         </div>
       </div>
       <div className="card__footer">
-        <button className="btn btn--outline-secondary">Add to Wishlist</button>
+        {isLoggedIn ? (
+          wishlistItems.find(
+            (wishlistProduct) => wishlistProduct.id === product.id
+          ) ? (
+            <button
+              className="btn btn--outline-secondary"
+              onClick={() => navigate("/wishlist")}
+            >
+              View your Wishlist
+            </button>
+          ) : (
+            <button
+              className="btn btn--outline-secondary"
+              onClick={() =>
+                addToWishlist({ ...product, qty: 1 }, token, wishlistDispatch)
+              }
+            >
+              Add to Wishlist
+            </button>
+          )
+        ) : (
+          <button
+            className="btn btn--outline-secondary"
+            onClick={() => navigate("/login", { replace: true })}
+          >
+            Add to Wishlist
+          </button>
+        )}
         {isLoggedIn ? (
           cartItems.find((cartProduct) => cartProduct.id === product.id) ? (
             <button

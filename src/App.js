@@ -9,6 +9,7 @@ import {
   Logout,
   Cart,
   PrivateRoutes,
+  Wishlist,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,6 +28,7 @@ function App() {
         <Route path="/mock" element={<Mockman />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
         </Route>
       </Routes>
     </div>

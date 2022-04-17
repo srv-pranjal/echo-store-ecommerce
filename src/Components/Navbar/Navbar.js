@@ -1,4 +1,4 @@
-import { useAuth, useCart } from "contexts";
+import { useAuth, useCart, useWishlist } from "contexts";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
@@ -11,6 +11,9 @@ export const Navbar = () => {
     cartState: { cartItemsQuantity },
   } = useCart();
 
+  const {
+    wishlistState: { wishlistItemsQuantity },
+  } = useWishlist();
   return (
     <header className="wrapper">
       <Link to="/">
@@ -54,7 +57,9 @@ export const Navbar = () => {
             <Link to="/wishlist">
               <div className="badge">
                 <i className="fa fa-heart"></i>
-                <span className="badge__status badge__number">5</span>
+                <span className="badge__status badge__number">
+                  {wishlistItemsQuantity}
+                </span>
               </div>
             </Link>
           </li>
