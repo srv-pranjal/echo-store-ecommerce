@@ -3,3 +3,4 @@ export { getCategoryFilteredProducts } from "./FilterUtilities/getCategoryFilter
 export { getPriceFilteredProducts } from "./FilterUtilities/getPriceFilteredProducts";
 export { getRatingFilteredProducts } from "./FilterUtilities/getRatingFilteredProducts";
 export { getFilteredProducts } from "./FilterUtilities/getFilteredProducts";
+export { showToast } from "./showToast";

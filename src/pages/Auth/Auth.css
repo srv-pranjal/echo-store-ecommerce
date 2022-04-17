@@ -1,0 +1,93 @@
+:root {
+  --shadow: 1px 1px 5px var(--secondary-color);
+}
+
+.authentication {
+  height: calc(100vh - 3.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+.authentication__form {
+  max-height: 95%;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+  border-radius: 0.4rem;
+}
+.authentication__title {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.authentication__subtitle {
+  text-align: center;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+.authentication__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.authentication__field label {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.authentication__field .input {
+  min-width: 20rem;
+}
+
+.authentication__help {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.authentication__help label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.authentication__help > a {
+  margin-left: auto;
+}
+.authentication__btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+.signup {
+  height: 105vh;
+}
+.signup__form {
+  padding: 1rem 1.5rem;
+}
+.password-wrapper {
+  position: relative;
+}
+
+.show-pwd {
+  position: absolute;
+  right: 0.5rem;
+  top: 20%;
+  cursor: pointer;
+  color: var(--light-secondary-color);
+}
+
+.logout-container {
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+  border-radius: 0.4rem;
+  max-height: 95%;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-message {
+  color: var(--dark-danger-color);
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
