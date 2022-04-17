@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import "./Auth.css";
 import { showToast } from "utilities";
+import { useDocumentTitle } from "hooks";
 
 export const Logout = () => {
   const { authDispatch } = useAuth();
@@ -13,9 +14,7 @@ export const Logout = () => {
     showToast("info", "Redirecting to Home Page . . .");
   }, [authDispatch]);
 
-  useEffect(() => {
-    document.title = "Logout | Echo Store";
-  }, []);
+  useDocumentTitle("Logout | Echo Store");
 
   useEffect(() => {
     setTimeout(() => navigate("/", { replace: true }), 3000);

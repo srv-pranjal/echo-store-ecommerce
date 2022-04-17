@@ -3,6 +3,7 @@ import axios from "axios";
 import { ProductCard } from "Components";
 import { useProducts } from "contexts/product-context";
 import { getFilteredProducts } from "utilities";
+import { useDocumentTitle } from "hooks";
 
 export const ProductList = () => {
   const {
@@ -10,9 +11,7 @@ export const ProductList = () => {
     dispatch,
   } = useProducts();
 
-  useEffect(() => {
-    document.title = "Products | Echo Store";
-  }, []);
+  useDocumentTitle("Products | Echo Store");
 
   useEffect(() => {
     (async () => {

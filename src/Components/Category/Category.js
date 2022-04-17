@@ -2,13 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { CategoryCard } from "./CategoryCard";
+import { useDocumentTitle } from "hooks";
 
 export const Category = () => {
   const [category, setCategory] = useState([]);
 
-  useEffect(() => {
-    document.title = "Home | Echo Store";
-  }, []);
+  useDocumentTitle("Home | Echo Store");
 
   useEffect(() => {
     (async () => {

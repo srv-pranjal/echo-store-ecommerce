@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useAuth } from "contexts";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { showToast } from "utilities";
 import "./Auth.css";
+import { useDocumentTitle } from "hooks";
 
 export const Signup = () => {
   const { authDispatch } = useAuth();
@@ -19,9 +20,7 @@ export const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  useEffect(() => {
-    document.title = "SignUp | Echo Store";
-  }, []);
+  useDocumentTitle("Signup | Echo Store");
 
   const signupHandler = async (e) => {
     e.preventDefault();
