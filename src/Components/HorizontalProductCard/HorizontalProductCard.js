@@ -1,7 +1,15 @@
-import { useAuth, useCart } from "contexts";
-import { removeFromCart, updateCartProductQty } from "utilities";
+import { useAuth, useCart, useWishlist } from "contexts";
+import {
+  addToCart,
+  addToWishlist,
+  removeFromCart,
+  removeFromWishlist,
+  showToast,
+  updateCartProductQty,
+} from "utilities";
+import "./HorizontalProductCard.css";
 
-export const CartProductCard = ({ product }) => {
+export const HorizontalProductCard = ({ product, page }) => {
   const {
     title,
     image,
@@ -14,10 +22,49 @@ export const CartProductCard = ({ product }) => {
     qty,
   } = product;
 
-  const { cartDispatch } = useCart();
+  const {
+    wishlistState: { wishlistItems },
+    wishlistDispatch,
+  } = useWishlist();
+  const {
+    cartState: { cartItems },
+    cartDispatch,
+  } = useCart();
   const {
     authState: { token },
   } = useAuth();
+
+  const moveToCart = () => {
+    let alreadyPresentProduct = cartItems.find(
+      (cartProduct) => product._id === cartProduct._id
+    );
+    removeFromWishlist(product, token, wishlistDispatch);
+    if (alreadyPresentProduct) {
+      updateCartProductQty(
+        alreadyPresentProduct,
+        token,
+        cartDispatch,
+        "increment"
+      );
+      showToast("success", "Product Added to Cart");
+    } else {
+      addToCart({ ...product, qty: 1 }, token, cartDispatch);
+    }
+  };
+
+  const moveToWishlist = () => {
+    let alreadyPresentProduct = wishlistItems.find(
+      (wishlistProduct) => product._id === wishlistProduct._id
+    );
+    if (alreadyPresentProduct) {
+      showToast("error", "Product already present in your Wishlist");
+    } else {
+      removeFromCart(product, token, cartDispatch);
+      addToWishlist(product, token, wishlistDispatch);
+    }
+  };
+
+  let isCartPage = page === "Cart";
 
   return (
     <article className="card card--horizontal">
@@ -48,7 +95,7 @@ export const CartProductCard = ({ product }) => {
         </div>
       </div>
       <div className="card__footer">
-        <div>
+        {isCartPage && (
           <div className="cart__quantity">
             <button
               className="btn btn--outline-secondary cart__btn-icon"
@@ -75,12 +122,24 @@ export const CartProductCard = ({ product }) => {
               <i className="fa fa-plus"></i>
             </button>
           </div>
-        </div>
-        <button className="btn btn--secondary">Move to Wishlist</button>
+        )}
+        {isCartPage ? (
+          <button className="btn btn--secondary" onClick={moveToWishlist}>
+            Move to Wishlist
+          </button>
+        ) : (
+          <button className="btn btn--secondary" onClick={moveToCart}>
+            Move to Cart
+          </button>
+        )}
       </div>
       <span
         className="card__btn-close"
-        onClick={() => removeFromCart(product, token, cartDispatch)}
+        onClick={() =>
+          isCartPage
+            ? removeFromCart(product, token, cartDispatch)
+            : removeFromWishlist(product, token, wishlistDispatch)
+        }
       >
         <i className="fa fa-times-circle"></i>
       </span>
