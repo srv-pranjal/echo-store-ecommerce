@@ -91,3 +91,18 @@
   margin-top: 0.5rem;
   font-weight: bold;
 }
+
+@media screen and (max-width: 768px) {
+  .signup {
+    height: calc(100vh - 3.5rem);
+  }
+  .logout-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logout-container {
+    width: 90%;
+  }
+}
