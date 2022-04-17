@@ -1,7 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
 import { Navbar } from "./Components";
-import { Home, Products, Login, Signup, Logout } from "./pages";
+import {
+  Home,
+  Products,
+  Login,
+  Signup,
+  Logout,
+  Cart,
+  PrivateRoutes,
+} from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,6 +25,9 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/mock" element={<Mockman />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/cart" element={<Cart />} />
+        </Route>
       </Routes>
     </div>
   );

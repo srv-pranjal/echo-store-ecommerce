@@ -1,4 +1,4 @@
-import { useAuth } from "contexts";
+import { useAuth, useCart } from "contexts";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
@@ -6,6 +6,11 @@ export const Navbar = () => {
   const {
     authState: { isLoggedIn, user },
   } = useAuth();
+
+  const {
+    cartState: { cartItemsQuantity },
+  } = useCart();
+
   return (
     <header className="wrapper">
       <Link to="/">
@@ -39,7 +44,9 @@ export const Navbar = () => {
             <Link to="/cart">
               <div className="badge">
                 <i className="fa fa-shopping-cart"></i>
-                <span className="badge__status badge__number">4</span>
+                <span className="badge__status badge__number">
+                  {cartItemsQuantity}
+                </span>
               </div>
             </Link>
           </li>

@@ -1,5 +1,16 @@
-export const ProductCard = ({
-  product: {
+import { useAuth, useCart } from "contexts";
+import { useNavigate } from "react-router-dom";
+import { addToCart } from "utilities";
+
+export const ProductCard = ({ product }) => {
+  const {
+    cartState: { cartItems },
+    cartDispatch,
+  } = useCart();
+  const {
+    authState: { isLoggedIn, token },
+  } = useAuth();
+  const {
     title,
     image,
     rating,
@@ -8,8 +19,10 @@ export const ProductCard = ({
     discountedPrice,
     discountPercent,
     altText,
-  },
-}) => {
+  } = product;
+
+  const navigate = useNavigate();
+
   return (
     <article className="card card--vertical card--shadow">
       <div className="card__content">
@@ -40,7 +53,32 @@ export const ProductCard = ({
       </div>
       <div className="card__footer">
         <button className="btn btn--outline-secondary">Add to Wishlist</button>
-        <button className="btn btn--primary">Add to Cart</button>
+        {isLoggedIn ? (
+          cartItems.find((cartProduct) => cartProduct.id === product.id) ? (
+            <button
+              className="btn btn--primary"
+              onClick={() => navigate("/cart")}
+            >
+              Go to Cart
+            </button>
+          ) : (
+            <button
+              className="btn btn--primary"
+              onClick={() =>
+                addToCart({ ...product, qty: 1 }, token, cartDispatch)
+              }
+            >
+              Add to Cart
+            </button>
+          )
+        ) : (
+          <button
+            className="btn btn--primary"
+            onClick={() => navigate("/login", { replace: true })}
+          >
+            Add to Cart
+          </button>
+        )}
       </div>
     </article>
   );
