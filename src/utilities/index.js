@@ -4,3 +4,7 @@ export { getPriceFilteredProducts } from "./FilterUtilities/getPriceFilteredProd
 export { getRatingFilteredProducts } from "./FilterUtilities/getRatingFilteredProducts";
 export { getFilteredProducts } from "./FilterUtilities/getFilteredProducts";
 export { showToast } from "./showToast";
+export { addToCart } from "./CartUtilities/addToCart";
+export { removeFromCart } from "./CartUtilities/removeFromCart";
+export { getUserCartDetails } from "./CartUtilities/getUserCartDetails";
+export { updateCartProductQty } from "./CartUtilities/updateCartProductQty";

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Auth.css";
 import axios from "axios";
@@ -8,11 +8,14 @@ import { useAuth } from "contexts";
 export const Login = () => {
   const { authDispatch } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+
+  let from = location.state?.from?.pathname || "/products";
 
   useEffect(() => {
     document.title = "Login | Echo Store";
@@ -31,7 +34,7 @@ export const Login = () => {
           type: "LOGIN",
           payload: { user: foundUser, token: encodedToken },
         });
-        navigate("/products", { replace: true });
+        navigate(from, { replace: true });
         showToast("success", "Login Succeeded!");
       }
     } catch (error) {
