@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { hero } from "assets";
+import { useProducts } from "contexts";
 
 export const Hero = () => {
+  const { dispatch } = useProducts();
   return (
     <section>
       <div className="hero">
@@ -12,7 +14,12 @@ export const Hero = () => {
             Get the best deals on electronics at Echo Store. Upto 45% off on 1st
             Order
           </p>
-          <Link className="btn btn--primary" role="button" to="/products">
+          <Link
+            className="btn btn--primary"
+            role="button"
+            to="/products"
+            onClick={() => dispatch({ type: "CLEAR_ALL_FILTERS" })}
+          >
             Shop Now
           </Link>
         </div>

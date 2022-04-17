@@ -11,3 +11,15 @@
 .cart .card__footer {
   align-items: center;
 }
+
+@media screen and (max-width: 768px) {
+  .cart .cart__items, .wishlist .wishlist__items{
+    width:85%
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cart .cart__items, .wishlist .wishlist__items{
+    width:100%
+  }
+}

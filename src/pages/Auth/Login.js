@@ -1,9 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Auth.css";
 import axios from "axios";
 import { showToast } from "utilities";
 import { useAuth } from "contexts";
+import { useDocumentTitle } from "hooks";
 
 export const Login = () => {
   const { authDispatch } = useAuth();
@@ -17,9 +18,7 @@ export const Login = () => {
 
   let from = location.state?.from?.pathname || "/products";
 
-  useEffect(() => {
-    document.title = "Login | Echo Store";
-  }, []);
+  useDocumentTitle("Login | Echo Store");
 
   const loginHandler = async (e) => {
     e.preventDefault();

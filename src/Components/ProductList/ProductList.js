@@ -3,12 +3,15 @@ import axios from "axios";
 import { ProductCard } from "Components";
 import { useProducts } from "contexts/product-context";
 import { getFilteredProducts } from "utilities";
+import { useDocumentTitle } from "hooks";
 
 export const ProductList = () => {
   const {
     state: { products, sortBy, rating, categories, priceRange },
     dispatch,
   } = useProducts();
+
+  useDocumentTitle("Products | Echo Store");
 
   useEffect(() => {
     (async () => {
@@ -24,10 +27,6 @@ export const ProductList = () => {
     })();
   }, [dispatch]);
 
-  useEffect(() => {
-    document.title = "Products | Echo Store";
-  }, []);
-
   const productsToDisplay = getFilteredProducts(
     products,
     sortBy,
@@ -37,7 +36,7 @@ export const ProductList = () => {
   );
 
   return (
-    <section className="section center-main-axis center-cross-axis">
+    <section className="section center-main-axis center-cross-axis products">
       {productsToDisplay.length > 0 ? (
         productsToDisplay.map((product) => (
           <ProductCard key={product.id} product={product} />

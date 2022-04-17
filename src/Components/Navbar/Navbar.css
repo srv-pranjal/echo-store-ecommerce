@@ -9,6 +9,7 @@
   position: sticky;
   top: 0;
   z-index: 5;
+  overflow: hidden;
 }
 .wrapper__title {
   font-style: italic;
@@ -26,9 +27,32 @@
   width: 1.2rem;
 }
 .nav__search-bar {
-  margin-right: 1rem;
-  width: 25rem;
+  width: 20rem;
 }
 .nav__search-bar .input {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .nav__search-bar {
+    width: min(12rem, 100%);
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .nav__search-bar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    padding: 1rem;
+  }
+  .wrapper__title {
+    font-size: 1.2rem;
+  }
+  .nav__list {
+    gap: 1rem;
+  }
 }

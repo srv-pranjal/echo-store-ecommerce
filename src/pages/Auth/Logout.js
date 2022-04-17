@@ -1,8 +1,9 @@
 import { useAuth } from "contexts";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import "./Auth.css";
 import { showToast } from "utilities";
+import { useDocumentTitle } from "hooks";
 
 export const Logout = () => {
   const { authDispatch } = useAuth();
@@ -13,24 +14,18 @@ export const Logout = () => {
     showToast("info", "Redirecting to Home Page . . .");
   }, [authDispatch]);
 
-  useEffect(() => {
-    document.title = "Logout | Echo Store";
-  }, []);
+  useDocumentTitle("Logout | Echo Store");
 
   useEffect(() => {
     setTimeout(() => navigate("/", { replace: true }), 3000);
   }, [navigate]);
+
   return (
     <main className="authentication">
       <div className="logout-container">
         <h3 className="authentication__title">Logged Out Successfully</h3>
         <p className="authentication__subtitle">
           Thank You for visiting Echo Store!.
-        </p>
-        <p className="authentication__subtitle">
-          <Link to="/" className="btn btn--link-text" role="button">
-            <i className="fa fa-arrow-left"></i> Back to Home Page
-          </Link>
         </p>
       </div>
     </main>

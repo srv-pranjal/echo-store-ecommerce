@@ -3,15 +3,14 @@ import { PriceCard, HorizontalProductCard } from "Components";
 import "./Cart.css";
 import { useCart } from "contexts";
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from "hooks";
 
 export const Cart = () => {
   const {
     cartState: { cartItems, cartItemsQuantity },
   } = useCart();
 
-  useEffect(() => {
-    document.title = "Cart | Echo Store";
-  }, []);
+  useDocumentTitle("Cart | Echo Store");
 
   return (
     <main>

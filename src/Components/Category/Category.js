@@ -2,9 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { CategoryCard } from "./CategoryCard";
+import { useDocumentTitle } from "hooks";
 
 export const Category = () => {
   const [category, setCategory] = useState([]);
+
+  useDocumentTitle("Home | Echo Store");
+
   useEffect(() => {
     (async () => {
       try {
@@ -15,6 +19,7 @@ export const Category = () => {
       }
     })();
   }, []);
+
   return (
     <div>
       <h1 className="section__heading">Categories</h1>

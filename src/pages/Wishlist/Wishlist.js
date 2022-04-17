@@ -1,17 +1,15 @@
-import { useEffect } from "react";
 import "./Wishlist.css";
 import { useWishlist } from "contexts";
 import { Link } from "react-router-dom";
 import { HorizontalProductCard } from "Components";
+import { useDocumentTitle } from "hooks";
 
 export const Wishlist = () => {
   const {
     wishlistState: { wishlistItems, wishlistItemsQuantity },
   } = useWishlist();
 
-  useEffect(() => {
-    document.title = "Wishlist | Echo Store";
-  }, []);
+  useDocumentTitle("Wishlist | Echo Store");
 
   return (
     <main>
