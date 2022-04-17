@@ -7,7 +7,7 @@ const AuthProvider = ({ children }) => {
   const token = localStorage.getItem("TOKEN");
   const user = localStorage.getItem("USER");
   const [authState, authDispatch] = useReducer(authReducer, {
-    isLoggedIn: false,
+    isLoggedIn: token ? true : false,
     token,
     user: JSON.parse(user),
   });
