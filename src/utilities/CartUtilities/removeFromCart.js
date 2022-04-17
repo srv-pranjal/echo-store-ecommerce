@@ -9,7 +9,7 @@ export const removeFromCart = async (product, token, cartDispatch) => {
       },
     });
     cartDispatch({ type: "REMOVE_FROM_CART", payload: product });
-    showToast("success", "Product Successfully Removed From Cart");
+    showToast("info", "Product Removed From Cart");
   } catch (error) {
     showToast("error", "Failed to Remove From Cart");
   }

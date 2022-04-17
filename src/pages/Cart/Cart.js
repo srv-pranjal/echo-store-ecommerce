@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { PriceCard, CartProductCard } from "Components";
+import { PriceCard, HorizontalProductCard } from "Components";
 import "./Cart.css";
 import { useCart } from "contexts";
 import { Link } from "react-router-dom";
@@ -20,7 +20,11 @@ export const Cart = () => {
         <section className="section cart">
           <section className="cart__items">
             {cartItems.map((product) => (
-              <CartProductCard key={product.id} product={product} />
+              <HorizontalProductCard
+                key={product.id}
+                product={product}
+                page={"Cart"}
+              />
             ))}
           </section>
           <PriceCard />
@@ -28,9 +32,15 @@ export const Cart = () => {
       ) : (
         <section className="cart__empty">
           <p className="heading--4">Your Echo Cart is Empty!</p>
-          <Link to="/products" class="btn btn--link-text" role="button">
-            Continue Shopping
-          </Link>
+          <p>
+            <Link to="/wishlist" className="btn btn--link-text" role="button">
+              View your Wishlist
+            </Link>
+            or
+            <Link to="/products" className="btn btn--link-text" role="button">
+              Continue Shopping
+            </Link>
+          </p>
         </section>
       )}
     </main>

@@ -1,0 +1,21 @@
+.section__heading {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+}
+
+/* --- Wishlist Items --- */
+.wishlist__items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 60%;
+}
+
+.wishlist__empty {
+  height: calc(100vh - 10rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

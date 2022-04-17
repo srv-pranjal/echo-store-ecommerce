@@ -1,0 +1,13 @@
+.wishlist .card,
+.cart .card {
+  max-width: 80ch;
+}
+.wishlist .card .img-responsive,
+.cart .card .img-responsive {
+  object-fit: cover;
+  border-radius: 0;
+}
+.wishlist .card__footer,
+.cart .card__footer {
+  align-items: center;
+}
