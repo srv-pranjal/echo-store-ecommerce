@@ -8,3 +8,6 @@ export { addToCart } from "./CartUtilities/addToCart";
 export { removeFromCart } from "./CartUtilities/removeFromCart";
 export { getUserCartDetails } from "./CartUtilities/getUserCartDetails";
 export { updateCartProductQty } from "./CartUtilities/updateCartProductQty";
+export { getUserWishlistDetails } from "./WishlistUtilities/getUserWishlistDetails";
+export { addToWishlist } from "./WishlistUtilities/addToWishlist";
+export { removeFromWishlist } from "./WishlistUtilities/removeFromWishlist";
