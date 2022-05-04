@@ -7,9 +7,11 @@ import {
   Login,
   Signup,
   Logout,
+  ForgotPassword,
   Cart,
   PrivateRoutes,
   Wishlist,
+  ResetPassword,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,6 +26,8 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:userID" element={<ResetPassword />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/mock" element={<Mockman />} />
         <Route element={<PrivateRoutes />}>

@@ -83,7 +83,7 @@ export const Login = () => {
             <input type="checkbox" />
             Remember me
           </label>
-          <Link to="/login" className="highlight" role="button">
+          <Link to="/forgot-password" className="highlight" role="button">
             Forgot Password?
           </Link>
         </div>
@@ -96,8 +96,8 @@ export const Login = () => {
           onClick={() =>
             setUser({
               ...user,
-              email: "pranjal.s@gmail.com",
-              password: "pranjal.s",
+              email: "guest123@gmail.com",
+              password: "guest@123",
             })
           }
         >

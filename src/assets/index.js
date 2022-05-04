@@ -12,3 +12,4 @@ export const speaker = require("./speaker.jpg");
 export const speaker1 = require("./speaker1.jpg");
 export const storage = require("./storage.jpg");
 export const storage1 = require("./storage1.jpg");
+export const mailsent = require("./mailsent.png");
