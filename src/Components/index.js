@@ -6,3 +6,4 @@ export { ProductList } from "./ProductList/ProductList";
 export { ProductCard } from "./ProductCard/ProductCard";
 export { PriceCard } from "./CartComponents/PriceCard";
 export { HorizontalProductCard } from "./HorizontalProductCard/HorizontalProductCard";
+export { MailSent } from "./MailSent/MailSent";

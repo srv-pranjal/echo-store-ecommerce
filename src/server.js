@@ -2,6 +2,8 @@ import { Server, Model, RestSerializer } from "miragejs";
 import {
   loginHandler,
   signupHandler,
+  forgotPasswordHandler,
+  resetPasswordHandler,
 } from "./backend/controllers/AuthController";
 import {
   addItemToCartHandler,
@@ -57,9 +59,12 @@ export function makeServer({ environment = "development" } = {}) {
 
     routes() {
       this.namespace = "api";
+      this.passthrough("https://api.emailjs.com/api/v1.0/email/send");
       // auth routes (public)
       this.post("/auth/signup", signupHandler.bind(this));
       this.post("/auth/login", loginHandler.bind(this));
+      this.post("/auth/forgot-password", forgotPasswordHandler.bind(this));
+      this.post("/auth/reset-password", resetPasswordHandler.bind(this));
 
       // products routes (public)
       this.get("/products", getAllProductsHandler.bind(this));

@@ -92,6 +92,45 @@
   font-weight: bold;
 }
 
+/* --- Forgot Password --- */
+.forgot {
+  height: 25rem;
+  padding: 5rem 1.5rem;
+}
+.forgot__msg {
+  text-align: start;
+  font-size: 0.9rem;
+  max-width: 45ch;
+}
+.forgot__btn {
+  padding: 0.875rem 0.5rem;
+}
+
+/* --- Mail Sent --- */
+.mailsent {
+  text-align: center;
+  max-width: 45ch;
+}
+.mailsent .authentication__subtitle {
+  font-size: 0.9rem;
+}
+.mailsent__img-container {
+  height: 10rem;
+}
+.mailsent__img-container > img {
+  height: 100%;
+  object-fit: scale-down;
+}
+.mailsent .authentication__btn {
+  width: 80%;
+  padding: 0.675rem 0.5rem;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
 @media screen and (max-width: 768px) {
   .signup {
     height: calc(100vh - 3.5rem);
